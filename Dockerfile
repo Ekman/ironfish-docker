@@ -8,8 +8,8 @@ ENV HOME="/home/$USER"
 
 EXPOSE 9033
 
-ARG IRONFISH_VERSION="0.1.*"
-RUN npm install --global npm\
+ARG IRONFISH_VERSION="1.*"
+RUN npm install --global npm \
     && npm install --global "ironfish@$IRONFISH_VERSION" \
     && npm cache clean --force \
     && apt-get update \
