@@ -1,0 +1,7 @@
+version: '3'
+services:
+  ironfish:
+    build: .
+    read_only: true
+    tmpfs: [ /tmp ]
+    volumes: [ "./ironfish:/home/ironfish/.ironfish" ]
