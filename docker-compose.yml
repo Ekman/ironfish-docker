@@ -4,4 +4,4 @@ services:
     build: .
     read_only: true
     tmpfs: [ /tmp ]
-    volumes: [ "./ironfish:/home/ironfish/.ironfish" ]
+    volumes: [ "./ironfish:/home/node/.ironfish" ]

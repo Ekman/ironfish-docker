@@ -1,13 +1,15 @@
-FROM node:18
+FROM node:18-slim
 
-ENV USER="ironfish"
+LABEL org.opencontainers.image.source="https://github.com/Ekman/ironfish-docker"
+LABEL org.opencontainers.image.authors="Niklas Ekman <nikl.ekman@gmail.com>"
+
+ENV USER="node"
 ENV HOME="/home/$USER"
 
 EXPOSE 9033
 
 ARG IRONFISH_VERSION="0.1.*"
-RUN adduser --system --disabled-password --disabled-login --home "$HOME" "$USER" \
-    && npm install --global "ironfish@$IRONFISH_VERSION" \
+RUN npm install --global "ironfish@$IRONFISH_VERSION" \
     && npm cache clean --force \
     && apt-get update \
     && apt-get install --no-install-recommends --yes tini gosu \
